@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:,">
+  <title>ipld-dag-online</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+      display: grid;
+      place-items: center;
+      min-block-size: 50dvb;
+      margin-block: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="file">
+
+  <script src="https://unpkg.com/@ipld/dag-pb/dist/index.min.js"></script>
+  <script src="https://unpkg.com/@ipld/dag-json/dist/index.min.js"></script>
+  <script src="https://unpkg.com/@ipld/dag-cbor/dist/index.min.js"></script>
+
+  <script>
+    console.table([
+      { name: 'IpldDagPb', description: 'The js-dag-pb module.' },
+      { name: 'IpldDagJson', description: 'The js-dag-json module.' },
+      { name: 'IpldDagCbor', description: 'The js-dag-cbor module.' },
+      { name: 'file', description: 'The selected file.' }
+    ]);
+
+    document.querySelector('input').addEventListener('change', e => {
+      globalThis.file = e.target.files[0];
+    });
+  </script>
+</body>
+
+</html>
